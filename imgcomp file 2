@@ -1,0 +1,25 @@
+program to compress image size by reducing dimensions and quality, then convert to binary list
+
+from PIL import Image, ImageDraw, ImageFont
+ 
+
+def ic(x):
+    # Open the original image
+    original = Image.open(x)                                        # Fix 1: r"x" → x  (was treating "x" as a literal path string)
+ 
+    # Make a copy so the original isn't changed
+    modified = original.copy()
+ 
+    # Draw something on the copy
+    draw = ImageDraw.Draw(modified)
+    font = ImageFont.truetype("verdana.ttf", 60)
+    draw.text((150, 150), "", font=font, fill=(0, 100, 155))
+ 
+    # Resize the image to reduce dimensions (optional)
+    modified = modified.resize((original.width // 2, original.height // 2))
+ 
+    # Save with lower quality to reduce file size
+    modified.save(r"D:\image compressor project\updated.pdf", quality=40, optimize=True)
+ 
+    print("Modified image saved with reduced memory as update.pdf")
+ 
