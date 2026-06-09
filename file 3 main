@@ -1,0 +1,14 @@
+import file1 as f
+import file2 as g
+
+a = input("Enter the path of image to be compressed: ")
+x = int(input("Enter Size limit in KB: "))
+
+g.ic(a)  # First run: compress the original image → creates updated.pdf
+
+for i in range(1, 100):
+    if f.sz(r"D:\image compressor project\updated.pdf") > x:
+        g.ic(r"D:\image compressor project\updated.pdf")
+    else:
+        print(f"Target reached in {i} iteration(s)!")
+        break
